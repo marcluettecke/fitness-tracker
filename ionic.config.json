@@ -1,0 +1,7 @@
+{
+  "name": "crossfit-tracker",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
