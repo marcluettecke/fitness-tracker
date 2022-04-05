@@ -1,0 +1,108 @@
+{
+  "id": "abc",
+  "firstName": "Marc",
+  "lastName": "Luettecke",
+  "gender": "male",
+  "age": 33,
+  "history": [
+    {
+      "id": "123",
+      "date": "25.03.2022",
+      "name": "Fran",
+      "type": "ft",
+      "timecap": 600,
+      "exercises": [
+        {
+          "excerciseName": "Thrusters",
+          "repititions": 21,
+          "weight": 42.5,
+          "focusArea": "legs"
+        },
+        {
+          "excerciseName": "Pull-ups",
+          "repititions": 21,
+          "weight": 0,
+          "focusArea": "upperBody"
+        },
+        {
+          "excerciseName": "Thrusters",
+          "repititions": 15,
+          "weight": 42.5,
+          "focusArea": "legs"
+        },
+        {
+          "excerciseName": "Pull-ups",
+          "repititions": 15,
+          "weight": 0,
+          "focusArea": "upperBody"
+        },
+        {
+          "excerciseName": "Thrusters",
+          "repititions": 9,
+          "weight": 42.5,
+          "focusArea": "legs"
+        },
+        {
+          "excerciseName": "Pull-ups",
+          "repititions": 9,
+          "weight": 0,
+          "focusArea": "upperBody"
+        }
+      ],
+      "result": 500,
+      "comment": "Better than last time! PR!"
+    },
+    {
+      "id": "456",
+      "date": "26.03.2022",
+      "name": "Back-Squat",
+      "type": "strength",
+      "exercises": [
+        {
+          "excerciseName": "Back-Squat",
+          "repititions": 5,
+          "weight": 100,
+          "focusArea": "legs",
+          "success": true
+        },
+        {
+          "excerciseName": "Back-Squat",
+          "repititions": 5,
+          "weight": 110,
+          "focusArea": "legs",
+          "success":  true
+        },
+        {
+          "excerciseName": "Back-Squat",
+          "repititions": 5,
+          "weight": 120,
+          "focusArea": "legs",
+          "success":  true
+        }
+      ],
+      "comment": "Better than last time! PR!"
+    }
+  ],
+  "personalBests": {
+    "workouts": [
+      {
+        "workoutName": "Cindy",
+        "result": 15
+      },
+      {
+        "workoutName": "Fran",
+        "result": 530
+      }
+    ],
+    "lifts": [
+      {
+        "liftName": "Bench",
+        "result": 200
+      },
+      {
+        "liftName": "Back-Squat",
+        "result": 250
+      }
+    ]
+  }
+}
