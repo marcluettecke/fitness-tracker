@@ -1,3 +1,5 @@
+import { Exercise } from './exercise.model';
+
 export interface LoggedWorkout {
   id: string;
   date: string;
@@ -6,15 +8,7 @@ export interface LoggedWorkout {
   duration?: number;
   timecap?: number;
   rounds?: number;
-  exercises: [
-    {
-      exerciseName: string;
-      repetitions: number;
-      weight: number;
-      success?: boolean;
-      focusArea: 'core' | 'legs' | 'upperBody';
-    }
-  ];
+  exercises: Exercise[];
   result?: number;
   comment: string;
 }

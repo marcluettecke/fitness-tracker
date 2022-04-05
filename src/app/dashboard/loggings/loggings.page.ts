@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { UserDataService } from '../../services/user-data.service';
 import { Subscription } from 'rxjs';
 import { User } from '../../models/user.model';
+import {
+  convertToLastSuccessfullStrengthSet,
+  convertToMinutesString,
+} from '../../utils/formatting.utilities';
 
 @Component({
   selector: 'app-loggings',
@@ -9,9 +13,18 @@ import { User } from '../../models/user.model';
   styleUrls: ['./loggings.page.scss'],
 })
 export class LoggingsPage implements OnInit {
-  totalLogs: number;
   userData: User;
   userDataSubscription: Subscription;
+  showDetails: boolean[] = [];
+  convertSecondsToMinutesString = convertToMinutesString;
+  convertStrengthLogs = convertToLastSuccessfullStrengthSet;
+  workoutTypeMappings = {
+    ft: 'For Time',
+    strength: 'Strength',
+    fq: 'For Quality',
+    amrap: 'AMRAP',
+    emom: 'EMOM',
+  };
 
   constructor(private userService: UserDataService) {}
 
@@ -20,8 +33,11 @@ export class LoggingsPage implements OnInit {
       .getUserData()
       .subscribe((userData) => {
         this.userData = userData;
-        this.totalLogs = this.userData.history.length;
-        console.log(this.userData);
+        this.showDetails = new Array(this.userData.history.length).fill(false);
       });
+  }
+
+  handleShowMoreClick(workoutIdx: number) {
+    this.showDetails[workoutIdx] = !this.showDetails[workoutIdx];
   }
 }

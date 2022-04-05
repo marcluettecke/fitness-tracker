@@ -13,38 +13,38 @@
       "timecap": 600,
       "exercises": [
         {
-          "excerciseName": "Thrusters",
-          "repititions": 21,
+          "exerciseName": "Thrusters",
+          "repetitions": 21,
           "weight": 42.5,
           "focusArea": "legs"
         },
         {
-          "excerciseName": "Pull-ups",
-          "repititions": 21,
+          "exerciseName": "Pull-ups",
+          "repetitions": 21,
           "weight": 0,
           "focusArea": "upperBody"
         },
         {
-          "excerciseName": "Thrusters",
-          "repititions": 15,
+          "exerciseName": "Thrusters",
+          "repetitions": 15,
           "weight": 42.5,
           "focusArea": "legs"
         },
         {
-          "excerciseName": "Pull-ups",
-          "repititions": 15,
+          "exerciseName": "Pull-ups",
+          "repetitions": 15,
           "weight": 0,
           "focusArea": "upperBody"
         },
         {
-          "excerciseName": "Thrusters",
-          "repititions": 9,
+          "exerciseName": "Thrusters",
+          "repetitions": 9,
           "weight": 42.5,
           "focusArea": "legs"
         },
         {
-          "excerciseName": "Pull-ups",
-          "repititions": 9,
+          "exerciseName": "Pull-ups",
+          "repetitions": 9,
           "weight": 0,
           "focusArea": "upperBody"
         }
@@ -55,29 +55,50 @@
     {
       "id": "456",
       "date": "26.03.2022",
-      "name": "Back-Squat",
+      "name": "Back-Squat / Push Press",
       "type": "strength",
       "exercises": [
         {
-          "excerciseName": "Back-Squat",
-          "repititions": 5,
+          "exerciseName": "Back-Squat",
+          "repetitions": 5,
           "weight": 100,
           "focusArea": "legs",
           "success": true
         },
         {
-          "excerciseName": "Back-Squat",
-          "repititions": 5,
+          "exerciseName": "Back-Squat",
+          "repetitions": 5,
           "weight": 110,
           "focusArea": "legs",
           "success":  true
         },
         {
-          "excerciseName": "Back-Squat",
-          "repititions": 5,
+          "exerciseName": "Back-Squat",
+          "repetitions": 5,
           "weight": 120,
           "focusArea": "legs",
           "success":  true
+        },
+        {
+          "exerciseName": "Push Press",
+          "repetitions": 10,
+          "weight": 60,
+          "focusArea": "upperBody",
+          "success": true
+        },
+        {
+          "exerciseName": "Push Press",
+          "repetitions": 8,
+          "weight": 80,
+          "focusArea": "upperBody",
+          "success":  true
+        },
+        {
+          "exerciseName": "Push Press",
+          "repetitions": 5,
+          "weight": 100,
+          "focusArea": "upperBody",
+          "success":  false
         }
       ],
       "comment": "Better than last time! PR!"

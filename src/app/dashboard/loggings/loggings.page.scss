@@ -12,3 +12,21 @@ ion-avatar {
   display: flex;
   justify-content: center;
 }
+
+.result-text {
+  font-size: 16px;
+  color: var(--ion-color-medium-tint);
+}
+
+ion-item {
+  --min-height: 0;
+
+  ion-label {
+    font-size: 14px;
+    color: var(--ion-color-medium-shade);
+
+    &.failed {
+      text-decoration: line-through;
+    }
+  }
+}
