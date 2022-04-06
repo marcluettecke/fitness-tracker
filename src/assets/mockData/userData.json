@@ -108,7 +108,7 @@
       "date": "01.01.2022",
       "name": "Cindy",
       "type": "amrap",
-      "duration": 1200,
+      "timecap": 1200,
       "exercises": [
         {
           "exerciseName": "Pull-Ups",
@@ -131,6 +131,87 @@
       ],
       "result": "14 + 3",
       "comment": "God, I hate Cindy!"
+    },
+    {
+      "id": "321",
+      "date": "12.31.2021",
+      "name": "Push Jerk EMOM",
+      "type": "emom",
+      "timecap": 900,
+      "frequency": 90,
+      "exercises": [
+        {
+          "exerciseName": "Push Jerk",
+          "repetitions": 5,
+          "weight": 100,
+          "focusArea": "upperBody",
+          "success": true
+        },
+        {
+          "exerciseName": "Push Jerk",
+          "repetitions": 5,
+          "weight": 100,
+          "focusArea": "upperBody",
+          "success": true
+        },
+        {
+          "exerciseName": "Push Jerk",
+          "repetitions": 5,
+          "weight": 100,
+          "focusArea": "upperBody",
+          "success": true
+        },
+        {
+          "exerciseName": "Push Jerk",
+          "repetitions": 5,
+          "weight": 100,
+          "focusArea": "upperBody",
+          "success": true
+        },
+        {
+          "exerciseName": "Push Jerk",
+          "repetitions": 5,
+          "weight": 100,
+          "focusArea": "upperBody",
+          "success": true
+        },
+        {
+          "exerciseName": "Push Jerk",
+          "repetitions": 5,
+          "weight": 100,
+          "focusArea": "upperBody",
+          "success": true
+        },
+        {
+          "exerciseName": "Push Jerk",
+          "repetitions": 5,
+          "weight": 100,
+          "focusArea": "upperBody",
+          "success": true
+        },
+        {
+          "exerciseName": "Push Jerk",
+          "repetitions": 5,
+          "weight": 100,
+          "focusArea": "upperBody",
+          "success": true
+        },
+        {
+          "exerciseName": "Push Jerk",
+          "repetitions": 5,
+          "weight": 100,
+          "focusArea": "upperBody",
+          "success": false
+        },
+        {
+          "exerciseName": "Push Jerk",
+          "repetitions": 5,
+          "weight": 100,
+          "focusArea": "upperBody",
+          "success": true
+        }
+      ],
+      "comment": "Nice EMOM to start the day..."
     }
   ],
   "personalBests": {

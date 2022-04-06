@@ -6,6 +6,9 @@ import {
   convertToLastSuccessfullStrengthSet,
   convertToMinutesString,
 } from '../../utils/formatting.utilities';
+import { SegmentCustomEvent } from '@ionic/angular';
+import { LoggedWorkout } from '../../models/workout.model';
+import { Exercise } from '../../models/exercise.model';
 
 @Component({
   selector: 'app-loggings',
@@ -25,7 +28,7 @@ export class LoggingsPage implements OnInit {
     amrap: 'AMRAP',
     emom: 'EMOM',
   };
-  selectedTimeSpan: '7days' | '30days' | 'total' = '7days';
+  selectedTimeSpan = 'total';
 
   constructor(private userService: UserDataService) {}
 
@@ -38,11 +41,21 @@ export class LoggingsPage implements OnInit {
       });
   }
 
+  countSuccessfulRounds(exercises: Exercise[]) {
+    console.log(exercises);
+    return exercises.filter((log) => log.success).length;
+  }
+
+  displayAmrapResult(result: string) {
+    const [rounds, reps] = result.split('+');
+    return `${rounds} rounds + ${reps} reps`;
+  }
+
   handleShowMoreClick(workoutIdx: number) {
     this.showDetails[workoutIdx] = !this.showDetails[workoutIdx];
   }
 
-  handleTimeSpanChange(event: any) {
+  handleTimeSpanChange(event: SegmentCustomEvent) {
     this.selectedTimeSpan = event.detail.value;
     this.userDataSubscription = this.userService
       .getUserData(this.selectedTimeSpan)

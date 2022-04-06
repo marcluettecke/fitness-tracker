@@ -8,6 +8,11 @@ ion-avatar {
   font-weight: bold;
 }
 
+.time-column {
+  display: flex;
+  flex-direction: column;
+}
+
 .avatar-column {
   display: flex;
   justify-content: center;
@@ -16,12 +21,14 @@ ion-avatar {
 .result-text {
   font-size: 16px;
   color: var(--ion-color-medium-tint);
+  font-weight: bold;
 }
+
 
 ion-item {
   --min-height: 0;
 
-  ion-label {
+  .item-description-text{
     font-size: 14px;
     color: var(--ion-color-medium-shade);
 

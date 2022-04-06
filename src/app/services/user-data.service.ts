@@ -9,7 +9,7 @@ import { map } from 'rxjs/operators';
 export class UserDataService {
   constructor(private http: HttpClient) {}
 
-  getUserData(timeSpan: '7days' | '30days' | 'total') {
+  getUserData(timeSpan: string) {
     return this.http.get<User>('../../assets/mockData/userData.json').pipe(
       map((user) => {
         const newHistory = user.history

@@ -5,10 +5,10 @@ export interface LoggedWorkout {
   date: Date;
   name: string;
   type: 'amrap' | 'emom' | 'ft' | 'fq' | 'strength';
-  duration?: number;
   timecap?: number;
   rounds?: number;
+  frequency?: number;
   exercises: Exercise[];
-  result?: number;
+  result?: number | string;
   comment: string;
 }
