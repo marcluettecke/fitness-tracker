@@ -14,7 +14,7 @@ export interface User {
     }[];
     lifts: {
       liftName: string;
-      result: number;
+      result: number | string;
     }[];
   };
 }

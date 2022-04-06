@@ -7,7 +7,7 @@
   "history": [
     {
       "id": "123",
-      "date": "25.03.2022",
+      "date": "03.25.2022",
       "name": "Fran",
       "type": "ft",
       "timecap": 600,
@@ -54,7 +54,7 @@
     },
     {
       "id": "456",
-      "date": "26.03.2022",
+      "date": "03.26.2022",
       "name": "Back-Squat / Push Press",
       "type": "strength",
       "exercises": [
@@ -102,6 +102,35 @@
         }
       ],
       "comment": "Better than last time! PR!"
+    },
+    {
+      "id": "789",
+      "date": "01.01.2022",
+      "name": "Cindy",
+      "type": "amrap",
+      "duration": 1200,
+      "exercises": [
+        {
+          "exerciseName": "Pull-Ups",
+          "repetitions": 5,
+          "weight": 0,
+          "focusArea": "upperBody"
+        },
+        {
+          "exerciseName": "Push-Ups",
+          "repetitions": 10,
+          "weight": 0,
+          "focusArea": "upperBody"
+        },
+        {
+          "exerciseName": "Squats",
+          "repetitions": 15,
+          "weight": 0,
+          "focusArea": "legs"
+        }
+      ],
+      "result": "14 + 3",
+      "comment": "God, I hate Cindy!"
     }
   ],
   "personalBests": {

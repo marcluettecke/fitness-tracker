@@ -25,12 +25,13 @@ export class LoggingsPage implements OnInit {
     amrap: 'AMRAP',
     emom: 'EMOM',
   };
+  selectedTimeSpan: '7days' | '30days' | 'total' = '7days';
 
   constructor(private userService: UserDataService) {}
 
   ngOnInit() {
     this.userDataSubscription = this.userService
-      .getUserData()
+      .getUserData(this.selectedTimeSpan)
       .subscribe((userData) => {
         this.userData = userData;
         this.showDetails = new Array(this.userData.history.length).fill(false);
@@ -39,5 +40,14 @@ export class LoggingsPage implements OnInit {
 
   handleShowMoreClick(workoutIdx: number) {
     this.showDetails[workoutIdx] = !this.showDetails[workoutIdx];
+  }
+
+  handleTimeSpanChange(event: any) {
+    this.selectedTimeSpan = event.detail.value;
+    this.userDataSubscription = this.userService
+      .getUserData(this.selectedTimeSpan)
+      .subscribe((userData) => {
+        this.userData = userData;
+      });
   }
 }

@@ -27,6 +27,11 @@ ion-item {
 
     &.failed {
       text-decoration: line-through;
+      color: var(--ion-color-danger)
     }
   }
+}
+
+.button-text {
+  font-weight: bold;
 }
