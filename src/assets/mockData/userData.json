@@ -70,14 +70,14 @@
           "repetitions": 5,
           "weight": 110,
           "focusArea": "legs",
-          "success":  true
+          "success": true
         },
         {
           "exerciseName": "Back-Squat",
           "repetitions": 5,
           "weight": 120,
           "focusArea": "legs",
-          "success":  true
+          "success": true
         },
         {
           "exerciseName": "Push Press",
@@ -91,14 +91,14 @@
           "repetitions": 8,
           "weight": 80,
           "focusArea": "upperBody",
-          "success":  true
+          "success": true
         },
         {
           "exerciseName": "Push Press",
           "repetitions": 5,
           "weight": 100,
           "focusArea": "upperBody",
-          "success":  false
+          "success": false
         }
       ],
       "comment": "Better than last time! PR!"
@@ -212,27 +212,159 @@
         }
       ],
       "comment": "Nice EMOM to start the day..."
+    },
+    {
+      "id": "654",
+      "date": "04.05.2022",
+      "name": "Quality Core Workout",
+      "type": "fq",
+      "exercises": [
+        {
+          "exerciseName": "Sit-Ups",
+          "repetitions": 20,
+          "weight": 0,
+          "focusArea": "core"
+        },
+        {
+          "exerciseName": "V-Ups",
+          "repetitions": 10,
+          "weight": 0,
+          "focusArea": "core"
+        },
+        {
+          "exerciseName": "Toes-to-Bar",
+          "repetitions": 5,
+          "weight": 0,
+          "focusArea": "core"
+        },
+        {
+          "exerciseName": "Sit-Ups",
+          "repetitions": 20,
+          "weight": 0,
+          "focusArea": "core"
+        },
+        {
+          "exerciseName": "V-Ups",
+          "repetitions": 10,
+          "weight": 0,
+          "focusArea": "core"
+        },
+        {
+          "exerciseName": "Toes-to-Bar",
+          "repetitions": 5,
+          "weight": 0,
+          "focusArea": "core"
+        },
+        {
+          "exerciseName": "Sit-Ups",
+          "repetitions": 20,
+          "weight": 0,
+          "focusArea": "core"
+        },
+        {
+          "exerciseName": "V-Ups",
+          "repetitions": 10,
+          "weight": 0,
+          "focusArea": "core"
+        },
+        {
+          "exerciseName": "Toes-to-Bar",
+          "repetitions": 5,
+          "weight": 0,
+          "focusArea": "core"
+        }
+      ],
+      "comment": "Good quality core workout"
     }
   ],
   "personalBests": {
     "workouts": [
       {
         "workoutName": "Cindy",
-        "result": 15
+        "result": "14 + 3",
+        "date": "01.01.2022"
       },
       {
         "workoutName": "Fran",
-        "result": 530
+        "result": 500,
+        "date": "03.01.2022"
       }
     ],
     "lifts": [
       {
-        "liftName": "Bench",
-        "result": 200
+        "liftName": "Back-Squat",
+        "results": {
+          "oneRepMax": {
+            "result": 120,
+            "date": "02.01.2022"
+          },
+          "twoRepMax": {
+            "result": 115,
+            "date": "03.01.2022"
+          },
+          "threeRepMax": {
+            "result": 105,
+            "date": "12.31.2021"
+          },
+          "fiveRepMax": {
+            "result": 110,
+            "date": "04.07.2022"
+          },
+          "tenRepMax": {
+            "result": 85,
+            "date": "02.01.2021"
+          }
+        }
       },
       {
-        "liftName": "Back-Squat",
-        "result": 250
+        "liftName": "Deadlift",
+        "results": {
+          "oneRepMax": {
+            "result": 170,
+            "date": "02.01.2022"
+          },
+          "twoRepMax": {
+            "result": 155,
+            "date": "03.01.2022"
+          },
+          "threeRepMax": {
+            "result": 150,
+            "date": "12.31.2021"
+          },
+          "fiveRepMax": {
+            "result": 140,
+            "date": "04.07.2022"
+          },
+          "tenRepMax": {
+            "result": 120,
+            "date": "02.01.2021"
+          }
+        }
+      },
+     {
+        "liftName": "Benchpress",
+        "results": {
+          "oneRepMax": {
+            "result": 100,
+            "date": "01.01.2022"
+          },
+          "twoRepMax": {
+            "result": 95,
+            "date": "01.01.2022"
+          },
+          "threeRepMax": {
+            "result": 90,
+            "date": "04.05.2021"
+          },
+          "fiveRepMax": {
+            "result": 80,
+            "date": "11.30.2020"
+          },
+          "tenRepMax": {
+            "result": 85,
+            "date": "02.01.2021"
+          }
+        }
       }
     ]
   }

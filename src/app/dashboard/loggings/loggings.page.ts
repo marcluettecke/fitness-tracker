@@ -42,7 +42,6 @@ export class LoggingsPage implements OnInit {
   }
 
   countSuccessfulRounds(exercises: Exercise[]) {
-    console.log(exercises);
     return exercises.filter((log) => log.success).length;
   }
 

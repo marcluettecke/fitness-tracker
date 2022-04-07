@@ -1,0 +1,70 @@
+[
+  {
+    "groupName": "Squats",
+    "records": [
+      {"recordName": "Back-Squat"},
+      {"recordName": "Paused Back-Squat"},
+      {"recordName": "Slow Back-Squat"},
+      {"recordName": "Front-Squat"},
+      {"recordName": "Paused Front-Squat"},
+      {"recordName": "Slow Front-Squat"},
+      {"recordName": "Overhead-Squat"},
+      {"recordName": "Paused Overhead-Squat"},
+      {"recordName": "Slow Overhead-Squat"}
+    ]
+  },
+  {
+    "groupName": "Pushes",
+    "records": [
+      {"recordName": "Benchpress"},
+      {"recordName": "Paused Benchpress"},
+      {"recordName": "Slow Benchpress"},
+      {"recordName": "Strict Shoulder Press"},
+      {"recordName": "Paused Strict Shoulder Press"},
+      {"recordName": "Slow Strict Shoulder Press"},
+      {"recordName": "Push Press"},
+      {"recordName": "Floor Press"}
+    ]
+  },
+  {
+    "groupName": "Deadlifts",
+    "records": [
+      {"recordName": "Deadlift"},
+      {"recordName": "Paused Deadlift"},
+      {"recordName": "Slow Deadlift"},
+      {"recordName": "Clean Grip Deadlift"},
+      {"recordName": "Paused Clean Grip Deadlift"},
+      {"recordName": "Slow Clean Grip Deadlift"},
+      {"recordName": "Snatch Grip Deadlift"},
+      {"recordName": "Paused Snatch Grip Deadlift"},
+      {"recordName": "Slow Snatch Grip Deadlift"},
+      {"recordName": "Push Press"}
+    ]
+  },
+  {
+    "groupName": "Clean & Jerk",
+    "records": [
+      {"recordName": "Squat Clean"},
+      {"recordName": "Power Clean"},
+      {"recordName": "Hang Clean"},
+      {"recordName": "Hang Power Clean"},
+      {"recordName": "Push Jerk"},
+      {"recordName": "Split Jerk"},
+      {"recordName": "Clean & Jerk"},
+      {"recordName": "Clean Extension"},
+      {"recordName": "Clean High Pull"}
+    ]
+  },
+  {
+    "groupName": "Snatch",
+    "records": [
+      {"recordName": "Squat Snatch"},
+      {"recordName": "Power Snatch"},
+      {"recordName": "Hang Snatch"},
+      {"recordName": "Hang Power Snatch"},
+      {"recordName": "Snatch Balance"},
+      {"recordName": "Snatch Extension"},
+      {"recordName": "Snatch High Pull"}
+    ]
+  }
+]

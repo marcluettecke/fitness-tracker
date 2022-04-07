@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../models/user.model';
-import { map } from 'rxjs/operators';
+import { filter, map } from 'rxjs/operators';
+import { PersonalBestLift } from '../models/personalBestLift.model';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',

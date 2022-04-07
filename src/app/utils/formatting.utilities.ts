@@ -28,3 +28,10 @@ export const convertToLastSuccessfullStrengthSet = (
   });
   return resultString;
 };
+
+export const formatDateLikeDatePipe = (date: Date): string => {
+  const day = date.getDate();
+  const month = date.toLocaleDateString('default', { month: 'short' });
+  const year = date.getFullYear();
+  return `${month} ${day}, ${year}`;
+};

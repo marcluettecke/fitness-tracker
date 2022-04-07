@@ -1,4 +1,6 @@
 import { LoggedWorkout } from './workout.model';
+import { PersonalBestLift } from './personalBestLift.model';
+import { PersonalBestWorkout } from './PersonalBestWorkout.model';
 
 export interface User {
   id: string;
@@ -8,13 +10,7 @@ export interface User {
   age: number;
   history: LoggedWorkout[];
   personalBests: {
-    workouts: {
-      workoutName: string;
-      result: number;
-    }[];
-    lifts: {
-      liftName: string;
-      result: number | string;
-    }[];
+    workouts: PersonalBestWorkout[];
+    lifts: PersonalBestLift[];
   };
 }

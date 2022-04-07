@@ -10,5 +10,5 @@ export interface LoggedWorkout {
   frequency?: number;
   exercises: Exercise[];
   result?: number | string;
-  comment: string;
+  comment?: string;
 }

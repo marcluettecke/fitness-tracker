@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button auto-hide="false" menu="m1"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Personal Bests
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-segment (ionChange)="handleDataDisplayChange($event)" value="lifts" class="ion-margin-top">
+    <ion-segment-button value="lifts">Lifts</ion-segment-button>
+    <ion-segment-button value="wods">WODs</ion-segment-button>
+  </ion-segment>
+  <ion-grid *ngIf="recordsData && userData">
+    <ion-row class="ion-margin-top">
+      <ion-col size="12" size-sm="8" offset-sm="2">
+        <ion-label *ngFor="let group of recordsData; let idx = index" [ngClass]="{'ion-padding': idx > 0}">
+            <h3>{{group.groupName}}</h3>
+          <ion-item detail="true" *ngFor="let lift of group.records" class="ion-margin-top lift-item">
+            <ion-label class="ion-no-margin">
+              <h4>{{lift.recordName}}{{findRecord(lift.recordName)}}</h4>
+            </ion-label>
+          </ion-item>
+        </ion-label>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
