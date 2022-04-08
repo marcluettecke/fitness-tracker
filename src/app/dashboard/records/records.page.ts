@@ -9,7 +9,12 @@ import {
   displayAmrapResult,
   formatDateLikeDatePipe,
 } from '../../utils/formatting.utilities';
-import { InputCustomEvent, SegmentCustomEvent } from '@ionic/angular';
+import {
+  InputCustomEvent,
+  ModalController,
+  SegmentCustomEvent,
+} from '@ionic/angular';
+import { FilterRecordsComponent } from './filter-records/filter-records.component';
 
 @Component({
   selector: 'app-records',
@@ -29,7 +34,8 @@ export class RecordsPage implements OnInit, OnDestroy {
 
   constructor(
     private benchmarkService: BenchmarkDataService,
-    private userDataService: UserDataService
+    private userDataService: UserDataService,
+    private modalCtrl: ModalController
   ) {}
 
   ngOnInit() {
@@ -107,5 +113,20 @@ export class RecordsPage implements OnInit, OnDestroy {
         records: filteredRecords,
       };
     });
+  }
+
+  openFilterModal() {
+    this.modalCtrl
+      .create({
+        component: FilterRecordsComponent,
+        componentProps: {
+          selectedRecordType: this.selectedRecordType,
+          groups: this.recordsData.map((group) => group.groupName),
+        },
+        id: 'filter-records-modal',
+      })
+      .then((modalEl) => {
+        modalEl.present().then();
+      });
   }
 }

@@ -7,14 +7,10 @@ import { IonicModule } from '@ionic/angular';
 import { RecordsPageRoutingModule } from './records-routing.module';
 
 import { RecordsPage } from './records.page';
+import { FilterRecordsComponent } from './filter-records/filter-records.component';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    RecordsPageRoutingModule
-  ],
-  declarations: [RecordsPage]
+  imports: [CommonModule, FormsModule, IonicModule, RecordsPageRoutingModule],
+  declarations: [RecordsPage, FilterRecordsComponent],
 })
 export class RecordsPageModule {}

@@ -42,7 +42,7 @@
         <ion-card class="ion-text-center" *ngFor="let log of userData.history; let workoutIdx = index">
           <ion-card-header>
             <ion-card-title>{{log.name}}</ion-card-title>
-            <ion-card-subtitle>{{log.date | date}}</ion-card-subtitle>
+            <ion-card-subtitle class="ion-padding">{{log.date | date}}</ion-card-subtitle>
           </ion-card-header>
           <ion-card-content class="ion-text-left">
             <ion-row *ngIf="showDetails[workoutIdx]">
@@ -59,7 +59,7 @@
                   </div>
                 </ion-row>
                 <ion-row class="ion-padding-bottom">
-                  <ion-item class="ion-text-center" *ngFor="let exercise of log.exercises">
+                  <ion-item class="ion-text-center" *ngFor="let exercise of log.exercises" lines="none">
                     <ion-label class="item-description-text ion-no-margin"
                                [ngClass]="{'failed': (log.type === 'strength' || log.type === 'emom') && !exercise.success}">
                       {{exercise.repetitions}} x {{exercise.exerciseName}}
@@ -77,12 +77,12 @@
                          class="result-text">{{convertSecondsToMinutesString(log.result)}}</ion-label>
               <ion-label *ngIf="log.type === 'emom'" class="result-text"> Finished: {{countSuccessfulRounds(log.exercises)}} rounds</ion-label>
               <div *ngIf="log.type === 'strength'">
-                <ion-item *ngFor="let strengthLog of convertStrengthLogs(log.exercises)">
+                <ion-item *ngFor="let strengthLog of convertStrengthLogs(log.exercises)" lines="none">
                   <ion-label class="result-text">{{strengthLog}}</ion-label>
                 </ion-item>
               </div>
               <div *ngIf="log.type === 'emom'">
-                <ion-item *ngFor="let emomLog of convertStrengthLogs(log.exercises)">
+                <ion-item *ngFor="let emomLog of convertStrengthLogs(log.exercises)" lines="none">
                   <ion-label class="result-text">{{emomLog}}</ion-label>
                 </ion-item>
               </div>

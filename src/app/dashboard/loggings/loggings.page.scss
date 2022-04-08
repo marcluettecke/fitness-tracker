@@ -27,6 +27,7 @@ ion-avatar {
 
 ion-item {
   --min-height: 0;
+  --background: inherit;
 
   .item-description-text{
     font-size: 14px;
@@ -41,4 +42,9 @@ ion-item {
 
 .button-text {
   font-weight: bold;
+}
+
+ion-card-title {
+  font-size: 20px;
+  color: var(--ion-color-medium-tint);
 }

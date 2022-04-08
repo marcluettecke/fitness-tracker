@@ -1,3 +1,11 @@
 ion-item {
   --min-height: 32px;
 }
+
+.exercise-name {
+  color: var(--ion-color-medium-tint)
+}
+
+.ios .padding-ios {
+  padding-top: 24px;
+}
