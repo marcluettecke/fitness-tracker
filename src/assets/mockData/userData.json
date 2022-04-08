@@ -282,11 +282,13 @@
       {
         "workoutName": "Cindy",
         "result": "14 + 3",
+        "workoutType": "amrap",
         "date": "01.01.2022"
       },
       {
         "workoutName": "Fran",
         "result": 500,
+        "workoutType":  "ft",
         "date": "03.01.2022"
       }
     ],

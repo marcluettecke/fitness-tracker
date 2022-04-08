@@ -10,15 +10,23 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-  <ion-segment (ionChange)="handleDataDisplayChange($event)" value="lifts" class="ion-margin-top">
+  <ion-segment (ionChange)="handleDataDisplayChange($event)" value="lifts" >
     <ion-segment-button value="lifts">Lifts</ion-segment-button>
     <ion-segment-button value="wods">WODs</ion-segment-button>
   </ion-segment>
-  <ion-grid *ngIf="recordsData && userData">
+  <ion-grid *ngIf="displayedData && userData">
     <ion-row class="ion-margin-top">
       <ion-col size="12" size-sm="8" offset-sm="2">
-        <ion-label *ngFor="let group of recordsData; let idx = index" [ngClass]="{'ion-padding': idx > 0}">
-            <h3>{{group.groupName}}</h3>
+        <ion-item>
+          <ion-label position="floating">Search</ion-label>
+          <ion-input type="text" name="wod" [(ngModel)]="filterValue" (ionChange)="handleSearchChange()"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-margin-top">
+      <ion-col size="12" size-sm="8" offset-sm="2">
+        <ion-label *ngFor="let group of displayedData; let idx = index" [ngClass]="{'ion-padding': idx > 0}">
+            <h3 *ngIf="group.records.length !== 0">{{group.groupName}}</h3>
           <ion-item detail="true" *ngFor="let lift of group.records" class="ion-margin-top lift-item">
             <ion-label class="ion-no-margin">
               <h4>{{lift.recordName}}{{findRecord(lift.recordName)}}</h4>

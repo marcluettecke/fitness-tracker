@@ -5,6 +5,7 @@ import { User } from '../../models/user.model';
 import {
   convertToLastSuccessfullStrengthSet,
   convertToMinutesString,
+  displayAmrapResult,
 } from '../../utils/formatting.utilities';
 import { SegmentCustomEvent } from '@ionic/angular';
 import { LoggedWorkout } from '../../models/workout.model';
@@ -21,6 +22,7 @@ export class LoggingsPage implements OnInit {
   showDetails: boolean[] = [];
   convertSecondsToMinutesString = convertToMinutesString;
   convertStrengthLogs = convertToLastSuccessfullStrengthSet;
+  displayAmrapResult = displayAmrapResult;
   workoutTypeMappings = {
     ft: 'For Time',
     strength: 'Strength',
@@ -43,11 +45,6 @@ export class LoggingsPage implements OnInit {
 
   countSuccessfulRounds(exercises: Exercise[]) {
     return exercises.filter((log) => log.success).length;
-  }
-
-  displayAmrapResult(result: string) {
-    const [rounds, reps] = result.split('+');
-    return `${rounds} rounds + ${reps} reps`;
   }
 
   handleShowMoreClick(workoutIdx: number) {

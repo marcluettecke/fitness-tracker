@@ -35,3 +35,8 @@ export const formatDateLikeDatePipe = (date: Date): string => {
   const year = date.getFullYear();
   return `${month} ${day}, ${year}`;
 };
+
+export const displayAmrapResult = (result: string) => {
+  const [rounds, reps] = result.split('+');
+  return `${rounds} rounds + ${reps} reps`;
+};

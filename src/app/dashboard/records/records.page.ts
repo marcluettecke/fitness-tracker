@@ -4,8 +4,12 @@ import { Records } from '../../models/benchmark.model';
 import { Subscription } from 'rxjs';
 import { UserDataService } from '../../services/user-data.service';
 import { User } from '../../models/user.model';
-import { formatDateLikeDatePipe } from '../../utils/formatting.utilities';
-import { SegmentCustomEvent } from '@ionic/angular';
+import {
+  convertToMinutesString,
+  displayAmrapResult,
+  formatDateLikeDatePipe,
+} from '../../utils/formatting.utilities';
+import { InputCustomEvent, SegmentCustomEvent } from '@ionic/angular';
 
 @Component({
   selector: 'app-records',
@@ -14,10 +18,14 @@ import { SegmentCustomEvent } from '@ionic/angular';
 })
 export class RecordsPage implements OnInit, OnDestroy {
   recordsData: Records[];
+  displayedData: Records[];
   userData: User;
   selectedRecordType = 'lifts';
+  filterValue = '';
   liftsSubscription: Subscription;
   userDataSubscription: Subscription;
+  convertSecondsToMinutesString = convertToMinutesString;
+  displayAmrapResult = displayAmrapResult;
 
   constructor(
     private benchmarkService: BenchmarkDataService,
@@ -27,21 +35,24 @@ export class RecordsPage implements OnInit, OnDestroy {
   ngOnInit() {
     this.liftsSubscription = this.benchmarkService
       .getBenchmarkData(this.selectedRecordType)
-      .subscribe((lifts) => {
-        this.recordsData = lifts;
-        console.log(this.recordsData);
+      .subscribe((records) => {
+        this.recordsData = records;
+        this.displayedData = this.recordsData;
       });
 
     this.userDataService.getUserData('total').subscribe((user) => {
       this.userData = user;
     });
   }
+
   handleDataDisplayChange(event: SegmentCustomEvent) {
+    this.filterValue = '';
     this.selectedRecordType = event.detail.value;
     this.liftsSubscription = this.benchmarkService
       .getBenchmarkData(this.selectedRecordType)
-      .subscribe((recordsData) => {
-        this.recordsData = recordsData;
+      .subscribe((records) => {
+        this.recordsData = records;
+        this.displayedData = this.recordsData;
       });
   }
 
@@ -67,11 +78,34 @@ export class RecordsPage implements OnInit, OnDestroy {
           (workout) => workout.workoutName === recordName
         )?.date
       );
-      return result ? ` : ${result} (${formatDateLikeDatePipe(date)})` : ' : -';
+      const type = this.userData.personalBests.workouts.find(
+        (workout) => workout.workoutName === recordName
+      )?.workoutType;
+
+      return result
+        ? ` : ${
+            type === 'amrap'
+              ? displayAmrapResult(result as string)
+              : convertToMinutesString(result as number)
+          } (${formatDateLikeDatePipe(date)})`
+        : ' : -';
     }
   }
+
   ngOnDestroy() {
     this.liftsSubscription.unsubscribe();
     this.userDataSubscription.unsubscribe();
+  }
+
+  handleSearchChange() {
+    this.displayedData = this.recordsData.map((group) => {
+      const filteredRecords = group.records.filter((record) =>
+        record.recordName.toLowerCase().includes(this.filterValue.toLowerCase())
+      );
+      return {
+        ...group,
+        records: filteredRecords,
+      };
+    });
   }
 }
