@@ -27,6 +27,7 @@ export class RecordsPage implements OnInit, OnDestroy {
   userDataSubscription: Subscription;
   convertSecondsToMinutesString = convertToMinutesString;
   displayAmrapResult = displayAmrapResult;
+  filterIsSet = false;
 
   constructor(
     private benchmarkService: BenchmarkDataService,
@@ -100,6 +101,7 @@ export class RecordsPage implements OnInit, OnDestroy {
   }
 
   handleSearchChange() {
+    this.filterIsSet = this.filterValue.length > 0;
     this.displayedData = this.recordsData.map((group) => {
       const filteredRecords = group.records.filter((record) =>
         record.recordName.toLowerCase().includes(this.filterValue.toLowerCase())
@@ -118,41 +120,54 @@ export class RecordsPage implements OnInit, OnDestroy {
     timecap?: number | string;
     exercises?: string[];
   }) {
-    // check group
-    const filteredGroups = this.recordsData.filter(
-      (group) =>
-        filters.group.includes(group.groupName) || filters.group.length === 0
-    );
-    this.displayedData = filteredGroups.map((group) => {
-      const filteredRecords = group.records.filter((record) => {
-        const uniqueExercisesInWod = Array.from(
-          new Set(record.exercises?.map((exercise) => exercise.exerciseName))
-        );
+    if (
+      !filters.name &&
+      !filters.timecap &&
+      filters.exercises.length === 0 &&
+      !filters.group &&
+      (filters.type === 'all' || !filters.type)
+    ) {
+      this.clearFilter();
+      return;
+    } else {
+      this.filterIsSet = true;
+      // check group
+      const filteredGroups = this.recordsData.filter(
+        (group) =>
+          filters.group.includes(group.groupName) || filters.group.length === 0
+      );
 
-        return (
-          // check name
-          record.recordName
-            .toLowerCase()
-            .includes(filters.name.toLowerCase()) &&
-          // check type
-          (record.type === filters.type ||
-            filters.type === 'all' ||
-            !filters.type) &&
-          // check timecap
-          (record.timecap <= (filters.timecap as number) * 60 ||
-            !filters.timecap) &&
-          // check if exercise is included
-          (filters.exercises.every((exercise) =>
-            uniqueExercisesInWod.includes(exercise)
-          ) ||
-            filters.exercises.length === 0)
-        );
+      this.displayedData = filteredGroups.map((group) => {
+        const filteredRecords = group.records.filter((record) => {
+          const uniqueExercisesInWod = Array.from(
+            new Set(record.exercises?.map((exercise) => exercise.exerciseName))
+          );
+
+          return (
+            // check name
+            record.recordName
+              .toLowerCase()
+              .includes(filters.name.toLowerCase()) &&
+            // check type
+            (record.type === filters.type ||
+              filters.type === 'all' ||
+              !filters.type) &&
+            // check timecap
+            (record.timecap <= (filters.timecap as number) * 60 ||
+              !filters.timecap) &&
+            // check if exercise is included
+            (filters.exercises.every((exercise) =>
+              uniqueExercisesInWod.includes(exercise)
+            ) ||
+              filters.exercises.length === 0)
+          );
+        });
+        return {
+          ...group,
+          records: filteredRecords,
+        };
       });
-      return {
-        ...group,
-        records: filteredRecords,
-      };
-    });
+    }
   }
 
   async openFilterModal() {
@@ -170,5 +185,11 @@ export class RecordsPage implements OnInit, OnDestroy {
       }
     });
     return await filterModal.present();
+  }
+
+  clearFilter() {
+    this.filterValue = '';
+    this.displayedData = this.recordsData;
+    this.filterIsSet = false;
   }
 }
