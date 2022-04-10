@@ -2,79 +2,271 @@
   {
     "groupName": "Girls",
     "records": [
-      {"recordName": "Cindy"},
-      {"recordName": "Fran"},
-      {"recordName": "Anne"},
-      {"recordName": "Karen"},
-      {"recordName": "Barbara"},
-      {"recordName": "Helen"},
-      {"recordName": "Grace"},
-      {"recordName": "Isabel"},
-      {"recordName": "Linda"},
-      {"recordName": "Nancy"},
-      {"recordName": "Kelly"}
+      {
+        "recordName": "Cindy"
+      },
+      {
+        "recordName": "Fran",
+        "type": "ft",
+        "timecap": 600,
+        "exercises": [
+          {
+            "exerciseName": "Thruster",
+            "repetitions": 21,
+            "weight": 42.5,
+            "focusArea": "legs"
+          },
+          {
+            "exerciseName": "Pull-ups",
+            "repetitions": 21,
+            "weight": 0,
+            "focusArea": "upperBody"
+          },
+          {
+            "exerciseName": "Thruster",
+            "repetitions": 15,
+            "weight": 42.5,
+            "focusArea": "legs"
+          },
+          {
+            "exerciseName": "Pull-ups",
+            "repetitions": 15,
+            "weight": 0,
+            "focusArea": "upperBody"
+          },
+          {
+            "exerciseName": "Thruster",
+            "repetitions": 9,
+            "weight": 42.5,
+            "focusArea": "legs"
+          },
+          {
+            "exerciseName": "Pull-ups",
+            "repetitions": 9,
+            "weight": 0,
+            "focusArea": "upperBody"
+          }
+        ]
+      },
+      {
+        "recordName": "Anne"
+      },
+      {
+        "recordName": "Cindy",
+        "type": "amrap",
+        "timecap": 1200,
+        "exercises": [
+          {
+            "exerciseName": "Push-ups",
+            "repetitions": 5,
+            "weight": 0,
+            "focusArea": "upperBody"
+          },
+          {
+            "exerciseName": "Pull-ups",
+            "repetitions": 10,
+            "weight": 0,
+            "focusArea": "upperBody"
+          },
+          {
+            "exerciseName": "Squats",
+            "repetitions": 15,
+            "weight": 0,
+            "focusArea": "legs"
+          }
+        ]
+      },
+
+      {
+        "recordName": "Karen"
+      },
+      {
+        "recordName": "Barbara"
+      },
+      {
+        "recordName": "Helen"
+      },
+      {
+        "recordName": "Grace"
+      },
+      {
+        "recordName": "Isabel"
+      },
+      {
+        "recordName": "Linda"
+      },
+      {
+        "recordName": "Nancy"
+      },
+      {
+        "recordName": "Kelly"
+      }
     ]
   },
   {
     "groupName": "Heroes",
     "records": [
-      {"recordName": "DT"},
-      {"recordName": "Kalsu"},
-      {"recordName": "Zachary Tellier"},
-      {"recordName": "Murph"},
-      {"recordName": "The Seven"},
-      {"recordName": "Zeus"},
-      {"recordName": "Bert"},
-      {"recordName": "Donny"},
-      {"recordName": "Clovis"}
+      {
+        "recordName": "DT"
+      },
+      {
+        "recordName": "Kalsu"
+      },
+      {
+        "recordName": "Zachary Tellier"
+      },
+      {
+        "recordName": "Murph"
+      },
+      {
+        "recordName": "The Seven"
+      },
+      {
+        "recordName": "Zeus"
+      },
+      {
+        "recordName": "Bert"
+      },
+      {
+        "recordName": "Donny"
+      },
+      {
+        "recordName": "Clovis"
+      }
     ]
   },
   {
     "groupName": "Open",
     "records": [
-      {"recordName": "14.1"},
-      {"recordName": "14.2"},
-      {"recordName": "14.3"},
-      {"recordName": "14.4"},
-      {"recordName": "14.5"},
-      {"recordName": "15.1"},
-      {"recordName": "15.2"},
-      {"recordName": "15.3"},
-      {"recordName": "15.5"},
-      {"recordName": "16.1"},
-      {"recordName": "16.3"},
-      {"recordName": "16.4"},
-      {"recordName": "16.5"},
-      {"recordName": "17.1"},
-      {"recordName": "17.2"},
-      {"recordName": "17.3"},
-      {"recordName": "17.4"},
-      {"recordName": "17.5"},
-      {"recordName": "18.1"},
-      {"recordName": "18.2"},
-      {"recordName": "18.3"},
-      {"recordName": "18.4"},
-      {"recordName": "18.5"},
-      {"recordName": "19.1"},
-      {"recordName": "19.2"},
-      {"recordName": "19.3"},
-      {"recordName": "19.4"},
-      {"recordName": "19.5"},
-      {"recordName": "20.1"},
-      {"recordName": "20.2"},
-      {"recordName": "20.3"},
-      {"recordName": "20.4"},
-      {"recordName": "20.5"},
-      {"recordName": "21.1"},
-      {"recordName": "21.2"},
-      {"recordName": "21.3"},
-      {"recordName": "21.4"},
-      {"recordName": "21.5"},
-      {"recordName": "22.1"},
-      {"recordName": "22.2"},
-      {"recordName": "22.3"},
-      {"recordName": "22.4"},
-      {"recordName": "22.5"}
+      {
+        "recordName": "14.1"
+      },
+      {
+        "recordName": "14.2"
+      },
+      {
+        "recordName": "14.3"
+      },
+      {
+        "recordName": "14.4"
+      },
+      {
+        "recordName": "14.5"
+      },
+      {
+        "recordName": "15.1"
+      },
+      {
+        "recordName": "15.2"
+      },
+      {
+        "recordName": "15.3"
+      },
+      {
+        "recordName": "15.5"
+      },
+      {
+        "recordName": "16.1"
+      },
+      {
+        "recordName": "16.3"
+      },
+      {
+        "recordName": "16.4"
+      },
+      {
+        "recordName": "16.5"
+      },
+      {
+        "recordName": "17.1"
+      },
+      {
+        "recordName": "17.2"
+      },
+      {
+        "recordName": "17.3"
+      },
+      {
+        "recordName": "17.4"
+      },
+      {
+        "recordName": "17.5"
+      },
+      {
+        "recordName": "18.1"
+      },
+      {
+        "recordName": "18.2"
+      },
+      {
+        "recordName": "18.3"
+      },
+      {
+        "recordName": "18.4"
+      },
+      {
+        "recordName": "18.5"
+      },
+      {
+        "recordName": "19.1"
+      },
+      {
+        "recordName": "19.2"
+      },
+      {
+        "recordName": "19.3"
+      },
+      {
+        "recordName": "19.4"
+      },
+      {
+        "recordName": "19.5"
+      },
+      {
+        "recordName": "20.1"
+      },
+      {
+        "recordName": "20.2"
+      },
+      {
+        "recordName": "20.3"
+      },
+      {
+        "recordName": "20.4"
+      },
+      {
+        "recordName": "20.5"
+      },
+      {
+        "recordName": "21.1"
+      },
+      {
+        "recordName": "21.2"
+      },
+      {
+        "recordName": "21.3"
+      },
+      {
+        "recordName": "21.4"
+      },
+      {
+        "recordName": "21.5"
+      },
+      {
+        "recordName": "22.1"
+      },
+      {
+        "recordName": "22.2"
+      },
+      {
+        "recordName": "22.3"
+      },
+      {
+        "recordName": "22.4"
+      },
+      {
+        "recordName": "22.5"
+      }
     ]
   }
 ]

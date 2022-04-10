@@ -9,11 +9,7 @@ import {
   displayAmrapResult,
   formatDateLikeDatePipe,
 } from '../../utils/formatting.utilities';
-import {
-  InputCustomEvent,
-  ModalController,
-  SegmentCustomEvent,
-} from '@ionic/angular';
+import { ModalController, SegmentCustomEvent } from '@ionic/angular';
 import { FilterRecordsComponent } from './filter-records/filter-records.component';
 
 @Component({
@@ -115,18 +111,64 @@ export class RecordsPage implements OnInit, OnDestroy {
     });
   }
 
-  openFilterModal() {
-    this.modalCtrl
-      .create({
-        component: FilterRecordsComponent,
-        componentProps: {
-          selectedRecordType: this.selectedRecordType,
-          groups: this.recordsData.map((group) => group.groupName),
-        },
-        id: 'filter-records-modal',
-      })
-      .then((modalEl) => {
-        modalEl.present().then();
+  handleFiltering(filters: {
+    name: string;
+    group: string[];
+    type?: string;
+    timecap?: number | string;
+    exercises?: string[];
+  }) {
+    // check group
+    const filteredGroups = this.recordsData.filter(
+      (group) =>
+        filters.group.includes(group.groupName) || filters.group.length === 0
+    );
+    this.displayedData = filteredGroups.map((group) => {
+      const filteredRecords = group.records.filter((record) => {
+        const uniqueExercisesInWod = Array.from(
+          new Set(record.exercises?.map((exercise) => exercise.exerciseName))
+        );
+
+        return (
+          // check name
+          record.recordName
+            .toLowerCase()
+            .includes(filters.name.toLowerCase()) &&
+          // check type
+          (record.type === filters.type ||
+            filters.type === 'all' ||
+            !filters.type) &&
+          // check timecap
+          (record.timecap <= (filters.timecap as number) * 60 ||
+            !filters.timecap) &&
+          // check if exercise is included
+          (filters.exercises.every((exercise) =>
+            uniqueExercisesInWod.includes(exercise)
+          ) ||
+            filters.exercises.length === 0)
+        );
       });
+      return {
+        ...group,
+        records: filteredRecords,
+      };
+    });
+  }
+
+  async openFilterModal() {
+    const filterModal = await this.modalCtrl.create({
+      component: FilterRecordsComponent,
+      componentProps: {
+        selectedRecordType: this.selectedRecordType,
+        groups: this.recordsData.map((group) => group.groupName),
+      },
+      id: 'filter-records-modal',
+    });
+    filterModal.onDidDismiss().then((data) => {
+      if (data.role === 'confirm') {
+        this.handleFiltering(data.data);
+      }
+    });
+    return await filterModal.present();
   }
 }

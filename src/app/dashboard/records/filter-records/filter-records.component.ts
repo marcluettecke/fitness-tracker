@@ -1,7 +1,8 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { MovementsDataService } from '../../../services/movements-data.service';
 import { Subscription } from 'rxjs';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-filter-records',
@@ -11,6 +12,7 @@ import { Subscription } from 'rxjs';
 export class FilterRecordsComponent implements OnInit, OnDestroy {
   @Input() selectedRecordType: string;
   @Input() groups: string[];
+  @ViewChild('f', { static: true }) form: NgForm;
   movements: string[] = [];
   selectedMovements: string[] = [];
   private movementsSubscription: Subscription;
@@ -44,5 +46,24 @@ export class FilterRecordsComponent implements OnInit, OnDestroy {
     this.selectedMovements = this.selectedMovements.filter(
       (movement) => movement !== selectedMovement
     );
+  }
+
+  onFilterRecords() {
+    if (!this.form.valid) {
+      return;
+    }
+    this.modalCtrl
+      .dismiss(
+        {
+          name: this.form.value.name,
+          exercises: this.selectedMovements,
+          group: this.form.value.group,
+          timecap: this.form.value.timecap,
+          type: this.form.value.type,
+        },
+        'confirm',
+        'filter-records-modal'
+      )
+      .then();
   }
 }

@@ -10,7 +10,7 @@
 </ion-header>
 
 <ion-content class="ion-text-center ion-padding">
-  <form #f=ngForm>
+  <form #f=ngForm (ngSubmit)="onFilterRecords()">
     <ion-grid>
       <ion-row>
         <ion-col size-sm="6" offset-sm="3">
@@ -24,11 +24,11 @@
           </ion-item>
         </ion-col>
       </ion-row>
-      <ion-row>
-        <ion-col size-sm="6" offset-sm="3"  *ngIf="selectedRecordType === 'wods'">
+      <ion-row *ngIf="selectedRecordType === 'wods'">
+        <ion-col size-sm="6" offset-sm="3">
           <ion-item>
             <ion-label position="floating">Workout Type</ion-label>
-            <ion-select [ngModel]="'all'" name="workout-type">
+            <ion-select [ngModel]="'all'" name="type">
               <ion-select-option value="all">All</ion-select-option>
               <ion-select-option value="ft">For Time</ion-select-option>
               <ion-select-option value="amrap">AMRAP</ion-select-option>
@@ -36,11 +36,23 @@
           </ion-item>
         </ion-col>
       </ion-row>
+      <ion-row *ngIf="selectedRecordType === 'wods'">
+        <ion-col size-sm="6" offset-sm="3">
+          <ion-item>
+            <ion-label position="floating">Timecap / Duration (mins)</ion-label>
+            <ion-input
+              type="number"
+              ngModel
+              name="timecap"
+            ></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
       <ion-row>
         <ion-col size-sm="6" offset-sm="3">
           <ion-item>
             <ion-label position="floating">{{selectedRecordType === 'lifts'? 'Group' : 'Category'}}</ion-label>
-            <ion-select multiple="true" name="group">
+            <ion-select multiple="true" name="group" ngModel>
               <ion-select-option *ngFor="let group of groups" [value]="group">{{group | uppercase}}</ion-select-option>
             </ion-select>
           </ion-item>
@@ -50,7 +62,7 @@
         <ion-col size-sm="6" offset-sm="3">
           <ion-label>Includes the following movements:</ion-label>
           <ion-list>
-            <ion-item-sliding *ngFor="let selectedMovement of selectedMovements" #slidingItem>
+            <ion-item-sliding *ngFor="let selectedMovement of selectedMovements">
               <ion-item lines="none">
                 <ion-label>{{selectedMovement}}</ion-label>
               </ion-item>
