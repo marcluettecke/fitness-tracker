@@ -1,0 +1,20 @@
+ion-grid {
+  height: 100%;
+  .entry-page {
+    height: 100%;
+  }
+}
+
+.routing-button {
+  position: absolute;
+  bottom: 80px;
+  left: 0;
+  right: 0;
+  display: grid;
+  place-content: center;
+
+  .routing-button-flex {
+    display: flex;
+    gap: 10px;
+  }
+}

@@ -59,7 +59,7 @@ export class FilterRecordsComponent implements OnInit, OnDestroy {
           exercises: this.selectedMovements,
           group: this.form.value.group,
           timecap: this.form.value.timecap,
-          type: this.form.value.type,
+          logType: this.form.value.type,
         },
         'confirm',
         'filter-records-modal'

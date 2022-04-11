@@ -6,8 +6,15 @@ import { RecordsPage } from './records.page';
 const routes: Routes = [
   {
     path: '',
-    component: RecordsPage
-  }
+    component: RecordsPage,
+  },
+  {
+    path: 'new',
+    loadChildren: () =>
+      import('./new-record/new-record.module').then(
+        (m) => m.NewRecordPageModule
+      ),
+  },
 ];
 
 @NgModule({
