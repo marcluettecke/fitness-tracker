@@ -18,3 +18,27 @@ ion-grid {
     gap: 10px;
   }
 }
+
+.routing-button {
+
+  display: grid;
+  place-content: center;
+
+  .routing-button-flex {
+    display: flex;
+    gap: 10px;
+  }
+
+  &-absolute {
+    position: absolute;
+  bottom: 80px;
+  left: 0;
+  right: 0;
+  }
+
+  &-flow {
+    position: inherit;
+    margin: 50px auto;
+    padding-bottom: 25px;
+  }
+}

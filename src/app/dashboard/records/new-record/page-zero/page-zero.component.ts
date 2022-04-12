@@ -10,7 +10,7 @@ export class PageZeroComponent implements OnInit {
   constructor(public newRecordService: NewRecordService) {}
 
   ngOnInit() {
-    this.newRecordService.clearSelection();
+    // this.newRecordService.clearSelection();
   }
 
   handleBenchmarkSelection(isBenchmark: boolean) {

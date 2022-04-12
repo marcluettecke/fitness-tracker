@@ -10,6 +10,8 @@ import { NewRecordPage } from './new-record.page';
 import { PageZeroComponent } from './page-zero/page-zero.component';
 import { PageOneLiftComponent } from './page-one-lift/page-one-lift.component';
 import { PageOneWodComponent } from './page-one-wod/page-one-wod.component';
+import { PageTwoWodComponent } from './page-two-wod/page-two-wod.component';
+import { PageTwoLiftComponent } from './page-two-lift/page-two-lift.component';
 
 @NgModule({
   imports: [CommonModule, FormsModule, IonicModule, NewRecordPageRoutingModule],
@@ -17,7 +19,9 @@ import { PageOneWodComponent } from './page-one-wod/page-one-wod.component';
     NewRecordPage,
     PageZeroComponent,
     PageOneLiftComponent,
+    PageTwoLiftComponent,
     PageOneWodComponent,
+    PageTwoWodComponent,
   ],
 })
 export class NewRecordPageModule {}

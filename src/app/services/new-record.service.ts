@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Records } from '../models/benchmark.model';
-import { SelectCustomEvent } from '@ionic/angular';
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -8,10 +7,13 @@ import { Router } from '@angular/router';
 })
 export class NewRecordService {
   selection = {
-    logType: '',
-    level: 0,
-    workoutType: '',
-    benchmarkWod: null,
+    logType: 'lift',
+    level: 2,
+    workoutType: 'amrap',
+    benchmarkWod: false,
+    fixedSetsNumberSets: 5,
+    fixedSetsNumberReps: 5,
+    variableSets: [{ numberReps: 5 }],
   };
   selectedLiftGroup: Records;
   selectedExercise: string;
@@ -21,19 +23,20 @@ export class NewRecordService {
   handleLogTypeSelection(type: 'wod' | 'lift') {
     this.selection.logType = type;
   }
+
   handleBenchmarkSelection(b: boolean) {
     this.selection.benchmarkWod = b;
   }
 
-  handleWodTypeSelection(type: 'wod' | 'lift') {
-    this.selection.logType = type;
+  handleWodTypeSelection(type: 'amrap' | 'emom' | 'ft' | 'fq' | 'other') {
+    this.selection.workoutType = type;
   }
 
   handleForwardLogRouting() {
     if (
       this.selection.logType === 'wod' &&
       this.selection.level === 1 &&
-      this.selection.benchmarkWod === false
+      this.selection.benchmarkWod === true
     ) {
       this.clearSelection();
       this.router.navigate(['/dashboard/tabs/records']).then();
@@ -46,12 +49,43 @@ export class NewRecordService {
     this.selection.level--;
   }
 
+  handleFixedSetsNumberRepsChange(mode: 'add' | 'remove') {
+    return mode === 'add'
+      ? this.selection.fixedSetsNumberReps++
+      : this.selection.fixedSetsNumberReps--;
+  }
+
+  handleFixedSetsNumberSetsChange(mode: 'add' | 'remove') {
+    return mode === 'add'
+      ? this.selection.fixedSetsNumberSets++
+      : this.selection.fixedSetsNumberSets--;
+  }
+
+  handleVariableSetsNumberRepsChange(mode: 'add' | 'remove', index: number) {
+    return mode === 'add'
+      ? this.selection.variableSets[index].numberReps++
+      : this.selection.variableSets[index].numberReps--;
+  }
+
   clearSelection() {
     this.selection = {
       logType: '',
       level: 0,
       workoutType: '',
       benchmarkWod: null,
+      fixedSetsNumberSets: 5,
+      fixedSetsNumberReps: 5,
+      variableSets: [{ numberReps: 5 }],
     };
+  }
+
+  addVariableSet() {
+    this.selection.variableSets.push({ numberReps: 5 });
+  }
+
+  handleVariableSetChange(add: 'add' | 'remove') {
+    return add === 'add'
+      ? this.selection.variableSets.push({ numberReps: 5 })
+      : this.selection.variableSets.pop();
   }
 }

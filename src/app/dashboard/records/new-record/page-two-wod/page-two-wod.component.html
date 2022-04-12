@@ -1,0 +1,61 @@
+<div class="page-two-wod-container">
+  <div class="text">
+    <ion-row>
+      <ion-col size="12" size-sm="8" offset-sm="2">
+        <ion-label>What type of WOD?</ion-label>
+      </ion-col>
+    </ion-row>
+  </div>
+  <div class="buttons">
+    <ion-row class="ion-text-center ion-padding-top" >
+      <ion-col size="12" size-sm="8" offset-sm="2">
+        <ion-button expand="block"
+                    [fill]="newRecordService.selection.workoutType === 'amrap'? 'solid': 'outline'"
+                    color="secondary"
+                    (click)="newRecordService.handleWodTypeSelection('amrap')">
+          AMRAP
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-text-center">
+      <ion-col size="12" size-sm="8" offset-sm="2">
+        <ion-button expand="block"
+                    [fill]="newRecordService.selection.workoutType === 'emom'? 'solid': 'outline'"
+                    color="secondary"
+                    (click)="newRecordService.handleWodTypeSelection('emom')">
+          EMOM
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-text-center">
+      <ion-col size="12" size-sm="8" offset-sm="2">
+        <ion-button expand="block"
+                    [fill]="newRecordService.selection.workoutType === 'ft'? 'solid': 'outline'"
+                    color="secondary"
+                    (click)="newRecordService.handleWodTypeSelection('ft')">
+          For Time
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-text-center">
+      <ion-col size="12" size-sm="8" offset-sm="2">
+        <ion-button expand="block"
+                    [fill]="newRecordService.selection.workoutType === 'fq'? 'solid': 'outline'"
+                    color="secondary"
+                    (click)="newRecordService.handleWodTypeSelection('fq')">
+          For Quality
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-text-center">
+      <ion-col size="12" size-sm="8" offset-sm="2">
+        <ion-button expand="block"
+                    [fill]="newRecordService.selection.workoutType === 'other'? 'solid': 'outline'"
+                    color="secondary"
+                    (click)="newRecordService.handleWodTypeSelection('other')">
+          Other
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </div>
+</div>

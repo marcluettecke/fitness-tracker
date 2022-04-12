@@ -10,27 +10,34 @@
 <ion-content>
   <ion-grid class="ion-padding">
     <app-page-zero class="entry-page" *ngIf="newRecordService.selection.level === 0"></app-page-zero>
-    <app-page-one-lift *ngIf="newRecordService.selection.level === 1 && newRecordService.selection.logType === 'lift'"></app-page-one-lift>
-    <app-page-one-wod *ngIf="newRecordService.selection.level === 1 && newRecordService.selection.logType === 'wod'"></app-page-one-wod>
-  </ion-grid>
-  <div class="routing-button">
-    <div class="routing-button-flex">
-       <ion-button
-         *ngIf="newRecordService.selection.level > 0"
-         color="primary"
-         (click)="newRecordService.handleBackwardLogRouting()">
-         Back
-       </ion-button>
-      <ion-button
-         color="primary"
-         (click)="newRecordService.handleForwardLogRouting()"
-        [disabled]="
-        !newRecordService.selection.logType ||
-        (newRecordService.selection.logType === 'lift' && newRecordService.selection.level === 1 && !newRecordService.selectedExercise) ||
-        (newRecordService.selection.logType === 'wod' && newRecordService.selection.level === 1 && newRecordService.selection.benchmarkWod === null)"
-      >
-         Next
-       </ion-button>
+    <app-page-one-lift
+      *ngIf="newRecordService.selection.level === 1 && newRecordService.selection.logType === 'lift'"></app-page-one-lift>
+    <app-page-two-lift
+      *ngIf="newRecordService.selection.level === 2 && newRecordService.selection.logType === 'lift'"></app-page-two-lift>
+    <app-page-one-wod
+      *ngIf="newRecordService.selection.level === 1 && newRecordService.selection.logType === 'wod'"></app-page-one-wod>
+    <app-page-two-wod
+      *ngIf="newRecordService.selection.level === 2 && newRecordService.selection.logType === 'wod'"></app-page-two-wod>
+    <div class="routing-button routin-button-absolute"
+         [ngClass]="newRecordService.selection.variableSets.length >= 3? 'routing-button-flow': ''">
+      <div class="routing-button-flex">
+         <ion-button
+           *ngIf="newRecordService.selection.level > 0"
+           color="primary"
+           (click)="newRecordService.handleBackwardLogRouting()">
+           Back
+         </ion-button>
+        <ion-button
+          color="primary"
+          (click)="newRecordService.handleForwardLogRouting()"
+          [disabled]="
+          !newRecordService.selection.logType ||
+          (newRecordService.selection.logType === 'lift' && newRecordService.selection.level === 1 && !newRecordService.selectedExercise) ||
+          (newRecordService.selection.logType === 'wod' && newRecordService.selection.level === 1 && newRecordService.selection.benchmarkWod === null)"
+        >
+           Next
+         </ion-button>
+      </div>
     </div>
-  </div>
+  </ion-grid>
 </ion-content>

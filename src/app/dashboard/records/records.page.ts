@@ -96,8 +96,12 @@ export class RecordsPage implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.liftsSubscription.unsubscribe();
-    this.userDataSubscription.unsubscribe();
+    if (this.liftsSubscription) {
+      this.liftsSubscription.unsubscribe();
+    }
+    if (this.userDataSubscription) {
+      this.userDataSubscription.unsubscribe();
+    }
   }
 
   handleSearchChange() {
