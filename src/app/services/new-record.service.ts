@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Records } from '../models/benchmark.model';
 import { Router } from '@angular/router';
+import { InputCustomEvent } from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root',
@@ -8,15 +9,23 @@ import { Router } from '@angular/router';
 export class NewRecordService {
   selection = {
     logType: 'lift',
-    level: 2,
-    workoutType: 'amrap',
+    level: 0,
+    selectedLiftGroup: {
+      groupName: '',
+      records: [],
+    } as Records,
+    selectedExercise: '',
+    workoutType: '',
     benchmarkWod: false,
-    fixedSetsNumberSets: 5,
-    fixedSetsNumberReps: 5,
-    variableSets: [{ numberReps: 5 }],
+    fixedSets: {
+      numberSets: 5,
+      numberReps: 5,
+      weight: [100, 100, 100, 100, 100],
+      success: [true, true, true, true, true],
+    },
+    variableSets: [{ numberReps: 5, weight: 100, success: true }],
+    setType: 'constant',
   };
-  selectedLiftGroup: Records;
-  selectedExercise: string;
 
   constructor(private router: Router) {}
 
@@ -40,7 +49,15 @@ export class NewRecordService {
     ) {
       this.clearSelection();
       this.router.navigate(['/dashboard/tabs/records']).then();
+    } else if (
+      this.selection.logType === 'lift' &&
+      this.selection.level === 3
+    ) {
+      console.log(this.selection);
+      this.router.navigate(['/dashboard/tabs/records']).then();
     } else {
+    }
+    {
       this.selection.level++;
     }
   }
@@ -51,14 +68,17 @@ export class NewRecordService {
 
   handleFixedSetsNumberRepsChange(mode: 'add' | 'remove') {
     return mode === 'add'
-      ? this.selection.fixedSetsNumberReps++
-      : this.selection.fixedSetsNumberReps--;
+      ? this.selection.fixedSets.numberReps++
+      : this.selection.fixedSets.numberReps--;
   }
 
   handleFixedSetsNumberSetsChange(mode: 'add' | 'remove') {
-    return mode === 'add'
-      ? this.selection.fixedSetsNumberSets++
-      : this.selection.fixedSetsNumberSets--;
+    if (mode === 'add') {
+      this.selection.fixedSets.numberSets++;
+      this.selection.fixedSets.success.push(true);
+    } else {
+      this.selection.fixedSets.numberSets--;
+    }
   }
 
   handleVariableSetsNumberRepsChange(mode: 'add' | 'remove', index: number) {
@@ -71,21 +91,49 @@ export class NewRecordService {
     this.selection = {
       logType: '',
       level: 0,
+      selectedLiftGroup: {
+        groupName: '',
+        records: [],
+      },
+      selectedExercise: '',
       workoutType: '',
       benchmarkWod: null,
-      fixedSetsNumberSets: 5,
-      fixedSetsNumberReps: 5,
-      variableSets: [{ numberReps: 5 }],
+      fixedSets: {
+        numberSets: 5,
+        numberReps: 5,
+        weight: [100, 100, 100, 100, 100],
+        success: [true, true, true, true, true],
+      },
+      variableSets: [{ numberReps: 5, weight: 0, success: true }],
+      setType: 'variable',
     };
-  }
-
-  addVariableSet() {
-    this.selection.variableSets.push({ numberReps: 5 });
   }
 
   handleVariableSetChange(add: 'add' | 'remove') {
     return add === 'add'
-      ? this.selection.variableSets.push({ numberReps: 5 })
+      ? this.selection.variableSets.push({
+          numberReps: 5,
+          weight: 100,
+          success: true,
+        })
       : this.selection.variableSets.pop();
+  }
+
+  toggleSetFail(idx: number) {
+    if (this.selection.setType === 'constant') {
+      this.selection.fixedSets.success[idx] =
+        !this.selection.fixedSets.success[idx];
+    } else {
+      this.selection.variableSets[idx].success =
+        !this.selection.variableSets[idx].success;
+    }
+  }
+
+  handleLiftWeightChange(event: InputCustomEvent, idx: number) {
+    if (this.selection.setType === 'constant') {
+      this.selection.fixedSets.weight[idx] = +event.target.value;
+    } else {
+      this.selection.variableSets[idx].weight = +event.target.value;
+    }
   }
 }

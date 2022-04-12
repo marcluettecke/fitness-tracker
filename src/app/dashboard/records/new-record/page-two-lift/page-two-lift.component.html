@@ -1,26 +1,26 @@
-<ion-segment (ionChange)="handleLiftRepModelChange($event)" value="constant" >
+<ion-segment (ionChange)="handleLiftRepModelChange($event)" [value]="newRecordService.selection.setType" >
     <ion-segment-button value="constant">Constant Reps</ion-segment-button>
     <ion-segment-button value="variable">Variable Reps</ion-segment-button>
 </ion-segment>
 
 <div *ngIf="displayedMode === 'constant'">
   <ion-row class="input-display">
-    <ion-label class="reps">{{newRecordService.selection.fixedSetsNumberReps}} sets</ion-label>
+    <ion-label class="reps">{{newRecordService.selection.fixedSets.numberSets}} sets</ion-label>
     <ion-label class="separator">x</ion-label>
-    <ion-label class="sets">{{newRecordService.selection.fixedSetsNumberSets}} reps</ion-label>
+    <ion-label class="sets">{{newRecordService.selection.fixedSets.numberReps}} reps</ion-label>
   </ion-row>
 
   <ion-row class="buttons">
-     <ion-button fill="outline" (click)="newRecordService.handleFixedSetsNumberRepsChange('remove')">
-      <ion-icon name="remove-outline"></ion-icon>
-    </ion-button>
-    <ion-button fill="outline" (click)="newRecordService.handleFixedSetsNumberRepsChange('add')">
-      <ion-icon name="add"></ion-icon>
-    </ion-button>
      <ion-button fill="outline" (click)="newRecordService.handleFixedSetsNumberSetsChange('remove')">
       <ion-icon name="remove-outline"></ion-icon>
     </ion-button>
     <ion-button fill="outline" (click)="newRecordService.handleFixedSetsNumberSetsChange('add')">
+      <ion-icon name="add"></ion-icon>
+    </ion-button>
+     <ion-button fill="outline" (click)="newRecordService.handleFixedSetsNumberRepsChange('remove')">
+      <ion-icon name="remove-outline"></ion-icon>
+    </ion-button>
+    <ion-button fill="outline" (click)="newRecordService.handleFixedSetsNumberRepsChange('add')">
       <ion-icon name="add"></ion-icon>
     </ion-button>
   </ion-row>
@@ -46,7 +46,10 @@
     <ion-button fill="clear" (click)="newRecordService.handleVariableSetChange('add')">
       <ion-icon color="secondary" name="add-circle" size="large"></ion-icon>
     </ion-button>
-    <ion-button fill="clear" (click)="newRecordService.handleVariableSetChange('remove')">
+    <ion-button
+      fill="clear"
+      (click)="newRecordService.handleVariableSetChange('remove')"
+      [disabled]="newRecordService.selection.variableSets.length === 1">
       <ion-icon color="secondary" name="remove-circle" size="large"></ion-icon>
     </ion-button>
   </div>

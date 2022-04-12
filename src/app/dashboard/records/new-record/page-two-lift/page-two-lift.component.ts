@@ -8,12 +8,15 @@ import { NewRecordService } from '../../../../services/new-record.service';
   styleUrls: ['./page-two-lift.component.scss'],
 })
 export class PageTwoLiftComponent implements OnInit {
-  displayedMode = 'constant';
+  displayedMode: string;
   constructor(public newRecordService: NewRecordService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.displayedMode = this.newRecordService.selection.setType;
+  }
 
   handleLiftRepModelChange(event: SegmentCustomEvent) {
     this.displayedMode = event.target.value;
+    this.newRecordService.selection.setType = event.target.value;
   }
 }

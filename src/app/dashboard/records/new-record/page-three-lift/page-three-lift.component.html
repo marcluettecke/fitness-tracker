@@ -1,0 +1,14 @@
+<div class="page-three-container" *ngIf="displayedSets !== []">
+  <ion-label class="title-text">{{newRecordService.selection.selectedExercise}}</ion-label>
+  <div class="entry-container" *ngFor="let set of displayedSets; let idx = index">
+    <ion-label class="set-text">Set #{{idx+1}}</ion-label>
+    <ion-input class="ion-text-center" [value]="set.weight" (ionChange)="newRecordService.handleLiftWeightChange($event, idx)"></ion-input>
+    <ion-label [ngClass]="determineIfSetIsFailed(idx, 'text')">x{{set.numberReps}} reps</ion-label>
+    <ion-button
+      fill="outline"
+      [color]="determineIfSetIsFailed(idx, 'buttonColor')"
+    (click)="newRecordService.toggleSetFail(idx)">
+      <ion-icon [name]="determineIfSetIsFailed(idx, 'icon')"></ion-icon>
+    </ion-button>
+  </div>
+</div>

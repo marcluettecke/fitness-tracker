@@ -35,7 +35,7 @@ export class PageOneLiftComponent implements OnInit, OnDestroy {
   }
 
   handleLiftGroupChange(event: SelectCustomEvent) {
-    this.newRecordService.selectedLiftGroup = event.target.value;
+    this.newRecordService.selection.selectedLiftGroup = event.target.value;
     this.benchmarkSubscription = this.benchmarkService
       .getBenchmarkData('lifts')
       .subscribe((lifts) => {

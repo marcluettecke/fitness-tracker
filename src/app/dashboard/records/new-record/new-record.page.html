@@ -14,30 +14,34 @@
       *ngIf="newRecordService.selection.level === 1 && newRecordService.selection.logType === 'lift'"></app-page-one-lift>
     <app-page-two-lift
       *ngIf="newRecordService.selection.level === 2 && newRecordService.selection.logType === 'lift'"></app-page-two-lift>
+    <app-page-three-lift
+      *ngIf="newRecordService.selection.level === 3 && newRecordService.selection.logType === 'lift'"></app-page-three-lift>
     <app-page-one-wod
       *ngIf="newRecordService.selection.level === 1 && newRecordService.selection.logType === 'wod'"></app-page-one-wod>
     <app-page-two-wod
       *ngIf="newRecordService.selection.level === 2 && newRecordService.selection.logType === 'wod'"></app-page-two-wod>
-    <div class="routing-button routin-button-absolute"
+
+    <div class="routing-button-container routing-button-container-absolute"
          [ngClass]="newRecordService.selection.variableSets.length >= 3? 'routing-button-flow': ''">
-      <div class="routing-button-flex">
-         <ion-button
-           *ngIf="newRecordService.selection.level > 0"
-           color="primary"
-           (click)="newRecordService.handleBackwardLogRouting()">
-           Back
-         </ion-button>
-        <ion-button
-          color="primary"
-          (click)="newRecordService.handleForwardLogRouting()"
-          [disabled]="
-          !newRecordService.selection.logType ||
-          (newRecordService.selection.logType === 'lift' && newRecordService.selection.level === 1 && !newRecordService.selectedExercise) ||
-          (newRecordService.selection.logType === 'wod' && newRecordService.selection.level === 1 && newRecordService.selection.benchmarkWod === null)"
-        >
-           Next
-         </ion-button>
-      </div>
-    </div>
+     <ion-button
+       *ngIf="newRecordService.selection.level > 0"
+       color="primary"
+       class="routing-button"
+       expand="block"
+       (click)="newRecordService.handleBackwardLogRouting()">
+       Back
+     </ion-button>
+    <ion-button
+      color="primary"
+      (click)="newRecordService.handleForwardLogRouting()"
+      class="routing-button"
+      [disabled]="
+      !newRecordService.selection.logType ||
+      (newRecordService.selection.logType === 'lift' && newRecordService.selection.level === 1 && !newRecordService.selection.selectedExercise) ||
+      (newRecordService.selection.logType === 'wod' && newRecordService.selection.level === 1 && newRecordService.selection.benchmarkWod === null)"
+    >
+       {{(newRecordService.selection.logType === 'lift' && newRecordService.selection.level === 3)? 'Log': 'Next'}}
+     </ion-button>
+  </div>
   </ion-grid>
 </ion-content>

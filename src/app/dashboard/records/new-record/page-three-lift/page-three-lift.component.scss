@@ -1,0 +1,26 @@
+.page-three-container {
+  margin-top: 32px;
+
+  .entry-container {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+
+    &:first-of-type {
+      margin-top: 32px;
+    }
+
+    .set-text {
+      width: 20%;
+    }
+
+    ion-input {
+      background: var(--ion-color-light);
+    }
+
+    .failed {
+      color: var(--ion-color-danger);
+      text-decoration: line-through;
+    }
+  }
+}
