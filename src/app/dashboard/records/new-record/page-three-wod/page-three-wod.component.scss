@@ -1,0 +1,23 @@
+ion-input {
+  --background: var(--ion-color-light);
+}
+
+.page-three-wod-container {
+  height: 100%;
+
+  .text {
+    margin-top: 32px;
+
+    .time-entry-container {
+      display: flex;
+      align-items: end;
+      gap: 8px;
+    }
+
+  }
+
+  .buttons {
+    margin-top: 48px;
+  }
+}
+

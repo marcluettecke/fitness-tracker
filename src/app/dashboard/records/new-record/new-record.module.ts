@@ -13,6 +13,7 @@ import { PageOneWodComponent } from './page-one-wod/page-one-wod.component';
 import { PageTwoWodComponent } from './page-two-wod/page-two-wod.component';
 import { PageTwoLiftComponent } from './page-two-lift/page-two-lift.component';
 import { PageThreeLiftComponent } from './page-three-lift/page-three-lift.component';
+import {PageThreeWodComponent} from './page-three-wod/page-three-wod.component';
 
 @NgModule({
   imports: [CommonModule, FormsModule, IonicModule, NewRecordPageRoutingModule],
@@ -24,6 +25,7 @@ import { PageThreeLiftComponent } from './page-three-lift/page-three-lift.compon
     PageThreeLiftComponent,
     PageOneWodComponent,
     PageTwoWodComponent,
+    PageThreeWodComponent
   ],
 })
 export class NewRecordPageModule {}

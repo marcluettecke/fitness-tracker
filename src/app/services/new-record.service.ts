@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Records } from '../models/benchmark.model';
 import { Router } from '@angular/router';
-import { InputCustomEvent } from '@ionic/angular';
+import {InputCustomEvent, ToastController} from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root',
@@ -27,7 +27,7 @@ export class NewRecordService {
     setType: 'constant',
   };
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private toastCtrl: ToastController) {}
 
   handleLogTypeSelection(type: 'wod' | 'lift') {
     this.selection.logType = type;
@@ -49,6 +49,11 @@ export class NewRecordService {
     ) {
       this.clearSelection();
       this.router.navigate(['/dashboard/tabs/records']).then();
+      this.toastCtrl.create({
+        message: 'Please enter Benchmark WOD in the list below',
+        duration: 2000,
+        position: 'middle',
+      }).then(toast => toast.present());
     } else if (
       this.selection.logType === 'lift' &&
       this.selection.level === 3

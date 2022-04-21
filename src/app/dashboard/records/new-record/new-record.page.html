@@ -20,7 +20,8 @@
       *ngIf="newRecordService.selection.level === 1 && newRecordService.selection.logType === 'wod'"></app-page-one-wod>
     <app-page-two-wod
       *ngIf="newRecordService.selection.level === 2 && newRecordService.selection.logType === 'wod'"></app-page-two-wod>
-
+    <app-page-three-wod
+      *ngIf="newRecordService.selection.level === 3 && newRecordService.selection.logType === 'wod'"></app-page-three-wod>
     <div class="routing-button-container routing-button-container-absolute"
          [ngClass]="newRecordService.selection.variableSets.length >= 3? 'routing-button-flow': ''">
      <ion-button
